@@ -16,7 +16,7 @@
   - @client_presenters.each do |key, client_presenter|
     %tbody
       %tr
-        %td= client_presenter.client_name
+        %td= link_to client_presenter.client_name, client_path(id:client_presenter.client_id) 
         %td= client_presenter.num_of_bets
         %td.amount= client_presenter.total_stakes/100.0
         %td.amount= client_presenter.total_returns/100.0

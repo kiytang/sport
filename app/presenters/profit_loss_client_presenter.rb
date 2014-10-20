@@ -1,7 +1,7 @@
 class ProfitLossClientPresenter
 
   attr_accessor :total_stakes, :total_returns, :num_of_bets, :num_of_winners,
-                :first_name, :last_name
+                :first_name, :last_name, :client_id
 
   class << self
     def present(start_date, end_date)
@@ -36,6 +36,7 @@ class ProfitLossClientPresenter
     @num_of_winners += 1 if bet.returns > 0
     @first_name      = bet.client.first_name
     @last_name       = bet.client.last_name
+    @client_id       = bet.client_id
   end
 
   def profit_loss

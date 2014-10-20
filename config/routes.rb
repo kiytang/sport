@@ -11,7 +11,7 @@ Fitzbucks::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+    resources :clients
 
   # Sample resource route with options:
   #   resources :products do
@@ -58,5 +58,7 @@ Fitzbucks::Application.routes.draw do
 
   resources :profit_loss_client, :only => [:new, :create]
 
-  match '/' => 'welcome#index', :as => :root
+  root :to => 'welcome#index'
+
+  
 end

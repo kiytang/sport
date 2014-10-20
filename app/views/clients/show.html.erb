@@ -1,0 +1,11 @@
+<%= @client.first_name + " "+@client.last_name %>
+<table>
+	<% @client.bets.joins(:sport).where("settled_at BETWEEN ? AND ?",
+     Time.new(2014, 01, 01).beginning_of_day,
+     Time.new(2014, 01, 10).end_of_day).group("bets.sport_id").each do |bet| %>
+		<tr> 
+		  <td>Sport <%= bet.sport.try :name %></td>
+		  <td>Stake <%= bet.stake %></td>
+		</tr>
+		<% end %>
+</table>
